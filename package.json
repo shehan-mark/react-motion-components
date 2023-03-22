@@ -1,0 +1,23 @@
+{
+  "name": "react-motion-components",
+  "version": "1.0.0",
+  "description": "Motion prioritized react component library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shehan-mark/react-motion-components.git"
+  },
+  "keywords": [
+    "react",
+    "ui-components"
+  ],
+  "author": "shehan-mark",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shehan-mark/react-motion-components/issues"
+  },
+  "homepage": "https://github.com/shehan-mark/react-motion-components#readme"
+}
