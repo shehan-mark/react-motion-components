@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import './index.scss';
+import './button.scss';
 
 export enum ButtonType {
   DEFAULT,
@@ -29,7 +29,7 @@ const Button = ({
 }: IButtonProps) => {
 
   const getCorrectButtonClass = () => {
-    let buttonClass = 'focus:outline-none text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 flex transition-all ';
+    let buttonClass = 'hello-button focus:outline-none text-white font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 flex transition-all';
     buttonClass += customClass;
     switch (buttonType) {
       case ButtonType.ALERT:
@@ -74,7 +74,7 @@ const Button = ({
   return (
     <button
       type="button"
-      className={getCorrectButtonClass()}
+      className={"hello-button"}
       onClick={action}
       disabled={disabled || isLoading}
     >
