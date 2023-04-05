@@ -25,7 +25,6 @@ export default [
     plugins: [
       resolve(),
       postcss({
-        modules: true,
         use: ['sass'],
       }),
       commonjs(),
