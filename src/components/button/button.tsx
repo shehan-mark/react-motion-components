@@ -7,7 +7,7 @@ export enum ButtonType {
   PRIMARY,
   ALERT,
   DANGER,
-  INFO
+  INFO,
 }
 
 export interface IButtonProps {
@@ -19,15 +19,14 @@ export interface IButtonProps {
   disabled?: boolean;
 }
 
-const Button = ({
+function Button({
   action,
   buttonText,
   // buttonType,
   isLoading = false,
   // customClass = '',
   disabled = false,
-}: IButtonProps) => {
-
+}: IButtonProps) {
   return (
     <StyledButton
       type="button"
