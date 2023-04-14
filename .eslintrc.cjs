@@ -11,6 +11,7 @@ module.exports = {
         'plugin:import/typescript',
         'airbnb',
         'airbnb-typescript',
+        'plugin:prettier/recommended'
     ],
     'overrides': [
     ],
@@ -22,7 +23,8 @@ module.exports = {
     },
     'plugins': [
         'react',
-        '@typescript-eslint'
+        '@typescript-eslint',
+        'prettier'
     ],
     'rules': {
         'indent': [
