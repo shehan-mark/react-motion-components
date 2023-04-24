@@ -11,7 +11,6 @@ module.exports = {
         'plugin:import/typescript',
         'airbnb',
         'airbnb-typescript',
-        'plugin:prettier/recommended'
     ],
     'overrides': [
     ],
@@ -35,10 +34,6 @@ module.exports = {
             'error',
             'unix'
         ],
-        'quotes': [
-            'error',
-            'single'
-        ],
         'semi': [
             'error',
             'always'
@@ -49,6 +44,8 @@ module.exports = {
               "forbidDefaultForRequired": false,        
               "functions": "defaultArguments" //Here
             }
-        ]
+        ],
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
     }
 };
