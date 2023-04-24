@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Button as StyledButton } from "./styled";
+import { Button as StyledButton } from './styled';
 
 export enum ButtonType {
   DEFAULT,
