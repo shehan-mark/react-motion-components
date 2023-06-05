@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button as StyledButton } from './styled';
+// import { Button as StyledButton } from './styled';
 
 export enum ButtonType {
   DEFAULT,
@@ -28,13 +28,13 @@ function Button({
   disabled = false,
 }: IButtonProps) {
   return (
-    <StyledButton
+    <button
       type="button"
       onClick={action}
       disabled={disabled || isLoading}
     >
       {buttonText}
-    </StyledButton>
+    </button>
   );
 }
 
