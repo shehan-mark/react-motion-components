@@ -11,11 +11,9 @@ export enum ButtonType {
 }
 
 export interface IButtonProps {
-  // buttonType: ButtonType;
   buttonText: string;
   action: () => void;
   isLoading?: boolean;
-  // customClass?: string;
   disabled?: boolean;
 }
 
