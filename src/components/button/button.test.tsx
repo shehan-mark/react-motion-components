@@ -7,7 +7,7 @@ describe('Button', () => {
   // test('renders the Button component', () => {
   //   render(<Button buttonText="Test Button" action={() => console.log('clicked')} />);
   // });
-  const renderComponent = () => render(<Button buttonText="Test Button" action={() => console.log('clicked')} />);
+  const renderComponent = () => render(<Button buttonText="Test Button" action={() => {}} />);
   it('should have something', () => {
     const { findByRole } = renderComponent();
     const buttonComp = findByRole('button');

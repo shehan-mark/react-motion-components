@@ -11,7 +11,7 @@ function Button({
   disabled = false,
   buttonType = ButtonType.DEFAULT,
 }: IButtonProps) {
-  console.log('this is the button type ', buttonType);
+  // console.log('this is the button type ', buttonType);
 
   return (
     <StyledButton
