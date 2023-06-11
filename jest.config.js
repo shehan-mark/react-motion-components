@@ -1,5 +1,5 @@
-module.exports = {
-  // testEnvironment: 'jsdom',
+export default {
+  testEnvironment: 'jsdom', // https://stackoverflow.com/a/69228464/11178128
   roots: ['./src'],
   setupFilesAfterEnv: ['./jest.setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js'],
