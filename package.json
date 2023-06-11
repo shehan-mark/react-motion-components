@@ -2,6 +2,7 @@
   "name": "react-motion-components",
   "version": "1.0.0",
   "description": "Motion prioritized react component library",
+  "homepage": "https://github.com/shehan-mark/react-motion-components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -17,7 +18,8 @@
     "lint:fix": "eslint --fix .",
     "prepare": "husky install",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "deploy:storybook": "yarn build:storybook && gh-pages -d storybook-static"
   },
   "repository": {
     "type": "git",
@@ -32,7 +34,6 @@
   "bugs": {
     "url": "https://github.com/shehan-mark/react-motion-components/issues"
   },
-  "homepage": "https://github.com/shehan-mark/react-motion-components#readme",
   "peerDependencies": {
     "react": "18.2.0"
   },
@@ -69,6 +70,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-storybook": "^0.6.12",
+    "gh-pages": "^5.0.0",
     "husky": "^8.0.3",
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
