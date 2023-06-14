@@ -7,11 +7,12 @@ export enum ButtonType {
 }
 
 export interface IButtonProps {
-  buttonText: string;
-  action: () => void;
+  text: string;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
   isLoading?: boolean;
   disabled?: boolean;
   buttonType?: ButtonType;
+  className?: string;
 }
 
 export type StyledButtonProps = {

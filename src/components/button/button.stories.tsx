@@ -17,6 +17,6 @@ export const ButtonOne = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ButtonOne.args = {
   // eslint-disable-next-line no-console
-  action: () => console.log('clicked me'),
-  buttonText: 'Storybook Button',
+  onClick: (e) => console.log('clicked me', e),
+  text: 'Motion Button',
 };

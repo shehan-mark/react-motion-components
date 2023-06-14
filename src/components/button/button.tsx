@@ -1,26 +1,41 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { Button as StyledButton } from './styled';
 import { ButtonType, IButtonProps } from './types';
 
 function Button({
-  action,
-  buttonText,
+  onClick,
+  text,
   isLoading = false,
-  // customClass = '',
   disabled = false,
   buttonType = ButtonType.DEFAULT,
+  className = '',
 }: IButtonProps) {
-  // console.log('this is the button type ', buttonType);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const element = buttonRef.current;
+    if (!element) return;
+    const circle = document.createElement('div');
+    const x = e.clientX;
+    const y = e.clientY;
+    circle.classList.add('ripple');
+    circle.style.left = `${x}px`;
+    circle.style.top = `${y}px`;
+    element.appendChild(circle);
+    onClick(e);
+  };
 
   return (
     <StyledButton
       buttonType={buttonType}
       type="button"
-      onClick={action}
+      onClick={handleClick}
       disabled={disabled || isLoading}
+      className={`${className}`}
+      ref={buttonRef}
     >
-      {buttonText}
+      {text}
     </StyledButton>
   );
 }
