@@ -1,4 +1,4 @@
-/* eslint-disable */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -7,52 +7,66 @@ import { StyledButtonProps } from './types';
 type ButtonStyle = {
   color: string;
   background: string;
-  shadow: string;
+  boxColor: string;
+  shadowAround: string;
+  shadowBottom: string;
   hoverColor: string;
   activeColor: string;
   outlineColor: string;
 };
 
+const animationDuration = 0.15;
+
 const ButtonColors: { [key: string]: ButtonStyle } = {
   DEFAULT: {
     background: '#e9e9ed',
-    shadow: '#a0a0a3',
+    boxColor: '#a0a0a3',
     color: 'black',
     activeColor: '#e9e9ed',
     hoverColor: '#e9e9ed',
     outlineColor: '',
+    shadowAround: '#262626',
+    shadowBottom: '#ddd',
   },
   PRIMARY: {
     background: '#59ad6a',
-    shadow: '#276e36',
-    color: 'white',
+    boxColor: '#276e36',
+    color: 'black',
     activeColor: '#7dff97',
     hoverColor: '#e1e8e3a8',
     outlineColor: '#01971edb',
+    shadowAround: '#262626',
+    shadowBottom: '#ddd',
   },
   ALERT: {
     background: '#ffbb49',
-    shadow: '#b58638',
+    boxColor: '#b58638',
     color: 'black',
     activeColor: '#fab94b',
     hoverColor: '#ffeac7',
     outlineColor: '#e99304',
+    shadowAround: '#262626',
+    shadowBottom: '#ddd',
   },
   DANGER: {
     background: '#e2574c',
-    shadow: '#913730',
+    boxColor: '#913730',
     color: 'white',
     activeColor: '#e9e9ed',
     hoverColor: '#e9e9ed',
     outlineColor: '',
+    shadowAround: '#262626',
+    shadowBottom: '#ddd',
   },
   INFO: {
     background: '#59bacc',
-    shadow: '#3e808c',
+    boxColor: '#3e808c',
     color: 'white',
     activeColor: '#e9e9ed',
     hoverColor: '#e9e9ed',
     outlineColor: '',
+    shadowAround: '#262626',
+    shadowBottom: '#ddd',
   },
 };
 
@@ -89,6 +103,7 @@ const ButtonColors: { [key: string]: ButtonStyle } = {
 //       boxShadow: `0 6px 4px ${ButtonColors[buttonType].hoverColor}`,
 //     },
 //     '.ripple': {
+// eslint-disable-next-line max-len
 //       backgroundImage: `radial-gradient(circle closest-side, ${ButtonColors[buttonType].hoverColor} 0, ${ButtonColors[buttonType].activeColor} 100%)`,
 //       position: 'absolute',
 //       borderRadius: '4px',
@@ -107,12 +122,14 @@ export const Button = styled.button(({ buttonType }: StyledButtonProps) => ({
   backgroundColor: ButtonColors[buttonType].background,
   position: 'relative',
   transformStyle: 'preserve-3d',
+  // eslint-disable-next-line max-len
   // transition: 'transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1)',
-  transition: 'all 0.15s',
+  transition: `all ${animationDuration}s`,
+  color: ButtonColors[buttonType].color,
 
   ':before': {
     content: '""',
-    backgroundColor: ButtonColors[buttonType].shadow,
+    backgroundColor: ButtonColors[buttonType].boxColor,
     position: 'absolute',
     height: '100%',
     width: '100%',
@@ -120,19 +137,18 @@ export const Button = styled.button(({ buttonType }: StyledButtonProps) => ({
     left: 0,
     bottom: 0,
     right: 0,
-    boxShadow: '0 0 0 1px #57575780, 0 0.625em 0 0 #ddd',
+    boxShadow: `0 0 0 1px ${ButtonColors[buttonType].shadowAround}, 0 0.625em 0 0 ${ButtonColors[buttonType].shadowBottom}`,
     transform: 'translate3d(0, 0.75em, -1em)',
-    transition: 'all 0.15s',
+    transition: `all ${animationDuration}s`,
   },
   ':active': {
     transform: 'translate(0em, 0.75em)',
   },
-  ':active:before' : {
-    boxShadow: '0 0 0 1px #57575780, 0 0 #ddd',
-    transform: 'translate3d(0, 0, -1em)'
+  ':active:before': {
+    boxShadow: `0 0 0 1px ${ButtonColors[buttonType].shadowAround}, 0 0 ${ButtonColors[buttonType].shadowBottom}`,
+    transform: 'translate3d(0, 0, -1em)',
   },
-  
   p: {
     margin: 0,
-  }
+  },
 }));
