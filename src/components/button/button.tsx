@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-import { Button as StyledButton } from './styled';
+import { FrontButton, TopLeftButton } from './styled';
 import { ButtonType, IButtonProps } from './types';
 
 function Button({
@@ -10,6 +10,7 @@ function Button({
   disabled = false,
   buttonType = ButtonType.DEFAULT,
   className = '',
+  buttonStyle = 'front',
 }: IButtonProps) {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   // const timeoutRef = useRef<any>(null);
@@ -32,19 +33,53 @@ function Button({
   //   }, 800);
   //   onClick(e);
   // };
+  if (buttonStyle === 'front') {
+    return (
+      <FrontButton
+        buttonType={buttonType}
+        type="button"
+        onClick={onClick}
+        disabled={disabled || isLoading}
+        className={`${className}`}
+        ref={buttonRef}
+        buttonStyle={buttonStyle}
+      >
+        <p>{text}</p>
+      </FrontButton>
+    );
+  }
 
-  return (
-    <StyledButton
-      buttonType={buttonType}
-      type="button"
-      onClick={onClick}
-      disabled={disabled || isLoading}
-      className={`${className}`}
-      ref={buttonRef}
-    >
-      <p>{text}</p>
-    </StyledButton>
-  );
+  if (buttonStyle === 'top-left') {
+    return (
+      <TopLeftButton
+        buttonType={buttonType}
+        type="button"
+        onClick={onClick}
+        disabled={disabled || isLoading}
+        className={`${className}`}
+        ref={buttonRef}
+        buttonStyle={buttonStyle}
+      >
+        <p>{text}</p>
+      </TopLeftButton>
+    );
+  }
+
+  return null;
+
+  // return (
+  //   <StyledButton
+  //     buttonType={buttonType}
+  //     type="button"
+  //     onClick={onClick}
+  //     disabled={disabled || isLoading}
+  //     className={`${className}`}
+  //     ref={buttonRef}
+  //     buttonStyle={buttonStyle}
+  //   >
+  //     <p>{text}</p>
+  //   </StyledButton>
+  // );
 }
 
 export default Button;
