@@ -1,6 +1,12 @@
 import React, { useRef } from 'react';
 
-import { FrontButton, TopLeftButton } from './styled';
+import {
+  FrontButton,
+  TopLeftButton,
+  TopRightButton,
+  BottomRightButton,
+  BottomLeftButton,
+} from './styled';
 import { ButtonType, IButtonProps } from './types';
 
 function Button({
@@ -65,21 +71,55 @@ function Button({
     );
   }
 
-  return null;
+  if (buttonStyle === 'top-right') {
+    return (
+      <TopRightButton
+        buttonType={buttonType}
+        type="button"
+        onClick={onClick}
+        disabled={disabled || isLoading}
+        className={`${className}`}
+        ref={buttonRef}
+        buttonStyle={buttonStyle}
+      >
+        <p>{text}</p>
+      </TopRightButton>
+    );
+  }
 
-  // return (
-  //   <StyledButton
-  //     buttonType={buttonType}
-  //     type="button"
-  //     onClick={onClick}
-  //     disabled={disabled || isLoading}
-  //     className={`${className}`}
-  //     ref={buttonRef}
-  //     buttonStyle={buttonStyle}
-  //   >
-  //     <p>{text}</p>
-  //   </StyledButton>
-  // );
+  if (buttonStyle === 'bottom-right') {
+    return (
+      <BottomRightButton
+        buttonType={buttonType}
+        type="button"
+        onClick={onClick}
+        disabled={disabled || isLoading}
+        className={`${className}`}
+        ref={buttonRef}
+        buttonStyle={buttonStyle}
+      >
+        <p>{text}</p>
+      </BottomRightButton>
+    );
+  }
+
+  if (buttonStyle === 'bottom-left') {
+    return (
+      <BottomLeftButton
+        buttonType={buttonType}
+        type="button"
+        onClick={onClick}
+        disabled={disabled || isLoading}
+        className={`${className}`}
+        ref={buttonRef}
+        buttonStyle={buttonStyle}
+      >
+        <p>{text}</p>
+      </BottomLeftButton>
+    );
+  }
+
+  return null;
 }
 
 export default Button;

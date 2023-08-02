@@ -85,7 +85,138 @@ const FrontButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) => (
   },
 }));
 
+const TopRightButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) => ({
+  ':before': {
+    content: '""',
+    backgroundColor: ButtonColors[buttonType].boxColor,
+    position: 'absolute',
+    height: '10%',
+    width: '100%',
+    left: '-1.5%',
+    bottom: '-10%',
+    boxShadow: `0 1px 0 0px ${ButtonColors[buttonType].shadowAround}`,
+    transform: 'skew(-45deg)',
+    transition: `all ${animationDuration}s`,
+  },
+  ':after': {
+    content: '""',
+    backgroundColor: ButtonColors[buttonType].boxColor,
+    position: 'absolute',
+    height: '100%',
+    width: '4%',
+    left: '-4%',
+    top: '6.2%',
+    transform: 'skewY(-45deg)',
+    boxShadow: `0 1px 0 0 ${ButtonColors[buttonType].shadowAround}`,
+    transition: `all ${animationDuration}s`,
+  },
+  ':active': {
+    transform: 'translate(-5%, 5%)',
+  },
+  ':active:before': {
+    height: '1px',
+    bottom: '0px',
+    left: '0px',
+    boxShadow: `0 1px 0 0px ${ButtonColors[buttonType].shadowAround}, 0 0 0 0 ${ButtonColors[buttonType].boxColor}`,
+  },
+  ':active:after': {
+    width: '2px',
+    left: '0px',
+    // top: '0px',
+    boxShadow: 'none',
+  },
+}));
+
+const BottomRightButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) => ({
+  ':before': {
+    content: '""',
+    backgroundColor: ButtonColors[buttonType].boxColor,
+    position: 'absolute',
+    height: '10%',
+    width: '100%',
+    left: '-2%',
+    top: '-10%',
+    // boxShadow: `0 1px 0 0px ${ButtonColors[buttonType].shadowAround}`,
+    transform: 'skew(45deg)',
+    transition: `all ${animationDuration}s`,
+  },
+  ':after': {
+    content: '""',
+    backgroundColor: ButtonColors[buttonType].boxColor,
+    position: 'absolute',
+    height: '100%',
+    width: '4%',
+    left: '-4%',
+    top: '-5%',
+    transform: 'skewY(45deg)',
+    transition: `all ${animationDuration}s`,
+    // boxShadow: `0 1px 0 0 ${ButtonColors[buttonType].shadowAround}`,
+  },
+  ':active': {
+    transform: 'translate(-5%, -5%)',
+  },
+  ':active:before': {
+    height: '1px',
+    top: '0px',
+    left: '0px',
+    // boxShadow: `0 1px 0 0px ${ButtonColors[buttonType].shadowAround},
+    // 0 0 0 0 ${ButtonColors[buttonType].boxColor}`,
+  },
+  ':active:after': {
+    width: '1px',
+    left: '0px',
+    top: '0px',
+    // boxShadow: 'none',
+  },
+}));
+
+const BottomLeftButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) => ({
+  ':before': {
+    content: '""',
+    backgroundColor: ButtonColors[buttonType].boxColor,
+    position: 'absolute',
+    height: '10%',
+    width: '100%',
+    left: '2%',
+    top: '-10%',
+    // boxShadow: `0 1px 0 0px ${ButtonColors[buttonType].shadowAround}`,
+    transform: 'skew(-45deg)',
+    transition: `all ${animationDuration}s`,
+  },
+  ':after': {
+    content: '""',
+    backgroundColor: ButtonColors[buttonType].boxColor,
+    position: 'absolute',
+    height: '100%',
+    width: '4%',
+    right: '-4%',
+    top: '-5%',
+    transform: 'skewY(-45deg)',
+    transition: `all ${animationDuration}s`,
+    // boxShadow: `0 1px 0 0 ${ButtonColors[buttonType].shadowAround}`,
+  },
+  ':active': {
+    transform: 'translate(5%, -5%)',
+  },
+  ':active:before': {
+    height: '1px',
+    top: '0px',
+    left: '0px',
+    // boxShadow: `0 1px 0 0px ${ButtonColors[buttonType].shadowAround},
+    // 0 0 0 0 ${ButtonColors[buttonType].boxColor}`,
+  },
+  ':active:after': {
+    width: '1px',
+    right: '0px',
+    top: '0px',
+    // boxShadow: 'none',
+  },
+}));
+
 export {
   TopLeftButton,
   FrontButton,
+  TopRightButton,
+  BottomRightButton,
+  BottomLeftButton,
 };
