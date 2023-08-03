@@ -67,6 +67,7 @@ function Button({
         buttonStyle={buttonStyle}
       >
         <p>{text}</p>
+        <div className="shadow" />
       </TopLeftButton>
     );
   }
