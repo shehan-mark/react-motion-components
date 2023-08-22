@@ -50,7 +50,10 @@ function Button({
         ref={buttonRef}
         buttonStyle={buttonStyle}
       >
-        <p>{text}</p>
+        <div className="face">
+          <p>{text}</p>
+        </div>
+        <div className="background-shadow" />
       </FrontButton>
     );
   }
@@ -66,8 +69,10 @@ function Button({
         ref={buttonRef}
         buttonStyle={buttonStyle}
       >
-        <p>{text}</p>
-        <div className="shadow" />
+        <div className="face">
+          <p>{text}</p>
+        </div>
+        <div className="background-shadow" />
       </TopLeftButton>
     );
   }
@@ -83,7 +88,10 @@ function Button({
         ref={buttonRef}
         buttonStyle={buttonStyle}
       >
-        <p>{text}</p>
+        <div className="face">
+          <p>{text}</p>
+        </div>
+        <div className="background-shadow" />
       </TopRightButton>
     );
   }
@@ -99,7 +107,10 @@ function Button({
         ref={buttonRef}
         buttonStyle={buttonStyle}
       >
-        <p>{text}</p>
+        <div className="face">
+          <p>{text}</p>
+        </div>
+        <div className="background-shadow" />
       </BottomRightButton>
     );
   }
@@ -115,7 +126,10 @@ function Button({
         ref={buttonRef}
         buttonStyle={buttonStyle}
       >
-        <p>{text}</p>
+        <div className="face">
+          <p>{text}</p>
+        </div>
+        <div className="background-shadow" />
       </BottomLeftButton>
     );
   }
