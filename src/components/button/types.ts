@@ -6,7 +6,7 @@ export enum ButtonType {
   INFO = 'INFO',
 }
 
-export type ButtonStyle = 'front' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type ButtonStyle = 'front' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right' | 'front-down';
 
 export interface IButtonProps {
   text: string;

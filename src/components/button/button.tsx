@@ -6,6 +6,7 @@ import {
   TopRightButton,
   BottomRightButton,
   BottomLeftButton,
+  FrontDownButton,
 } from './styled';
 import { ButtonType, IButtonProps } from './types';
 
@@ -55,6 +56,25 @@ function Button({
         </div>
         <div className="background-shadow" />
       </FrontButton>
+    );
+  }
+
+  if (buttonStyle === 'front-down') {
+    return (
+      <FrontDownButton
+        buttonType={buttonType}
+        type="button"
+        onClick={onClick}
+        disabled={disabled || isLoading}
+        className={`${className}`}
+        ref={buttonRef}
+        buttonStyle={buttonStyle}
+      >
+        <div className="face">
+          <p>{text}</p>
+        </div>
+        <div className="background-shadow" />
+      </FrontDownButton>
     );
   }
 
