@@ -57,7 +57,7 @@ const TopLeftButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) =>
       transition: `all ${animationDuration}s`,
     },
     ':active': {
-      transform: 'translate(5px, 5px)',
+      transform: 'translate(10px, 10px)',
     },
     ':active:after': {
       width: '1px',
@@ -84,8 +84,8 @@ const TopLeftButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) =>
   },
   ':active': {
     '.background-shadow': {
-      right: '-5px',
-      bottom: '-5px',
+      // right: '0px',
+      // bottom: '0px',
     },
   },
 }));
@@ -151,7 +151,7 @@ const TopRightButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) =
       transition: `all ${animationDuration}s`,
     },
     ':active': {
-      transform: 'translate(-5px, 5px)',
+      transform: 'translate(-10px, 10px)',
     },
     ':active:before': {
       height: '1px',
@@ -176,8 +176,8 @@ const TopRightButton = styled(BasicButton)(({ buttonType }: StyledButtonProps) =
   },
   ':active': {
     '.background-shadow': {
-      left: '-5px',
-      bottom: '-5px',
+      // left: '-5px',
+      // bottom: '-5px',
     },
   },
 }));
@@ -213,7 +213,7 @@ const BottomRightButton = styled(BasicButton)(({ buttonType }: StyledButtonProps
       transition: `all ${animationDuration}s`,
     },
     ':active': {
-      transform: 'translate(-5px, -5px)',
+      transform: 'translate(-10px, -10px)',
     },
     ':active:before': {
       height: '1px',
@@ -238,8 +238,8 @@ const BottomRightButton = styled(BasicButton)(({ buttonType }: StyledButtonProps
   },
   ':active': {
     '.background-shadow': {
-      top: '-5px',
-      left: '-5px',
+      // top: '-5px',
+      // left: '-5px',
     },
   },
 }));
@@ -275,7 +275,7 @@ const BottomLeftButton = styled(BasicButton)(({ buttonType }: StyledButtonProps)
       transition: `all ${animationDuration}s`,
     },
     ':active': {
-      transform: 'translate(5px, -5px)',
+      transform: 'translate(10px, -10px)',
     },
     ':active:before': {
       height: '1px',
@@ -300,8 +300,8 @@ const BottomLeftButton = styled(BasicButton)(({ buttonType }: StyledButtonProps)
   },
   ':active': {
     '.background-shadow': {
-      top: '-5px',
-      right: '-5px',
+      // top: '-5px',
+      // right: '-5px',
     },
   },
 }));
