@@ -5,6 +5,6 @@ import Button from './button';
 
 describe('Button', () => {
   test('renders the Button component', () => {
-    render(<Button buttonText="Test Button" action={() => {}} />);
+    render(<Button text="Test Button" onClick={() => {}} />);
   });
 });
