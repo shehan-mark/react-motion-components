@@ -12,8 +12,3 @@ This library will not be based on an exiting library. Will only have authentic c
     StoryBook
   </a>
 </center>
-
-// another good candidate to copy - https://codepen.io/jemware/pen/kPoYbe
-// https://codepen.io/rauldronca/pen/PzMgzp
-// https://codepen.io/vladracoare/pen/jOPmMap
-// https://codepen.io/kathykato/pen/gOOjgmP
