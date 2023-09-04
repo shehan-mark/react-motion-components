@@ -10,7 +10,7 @@ import {
 } from './styled';
 import { ButtonType, IButtonProps } from './types';
 
-function Button({
+const Button = ({
   onClick,
   text,
   isLoading = false,
@@ -18,7 +18,7 @@ function Button({
   buttonType = ButtonType.DEFAULT,
   className = '',
   buttonStyle = 'front',
-}: IButtonProps) {
+}: IButtonProps) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   // const timeoutRef = useRef<any>(null);
 
@@ -155,6 +155,6 @@ function Button({
   }
 
   return null;
-}
+};
 
 export default Button;
