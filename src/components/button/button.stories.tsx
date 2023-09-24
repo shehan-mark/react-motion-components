@@ -1,22 +1,47 @@
-import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+// import React from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import Button from './button';
+import { ButtonType } from './types';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: 'Button',
+// this default export object controls how storybook list our component
+// and provide information for the addons used by us.
+const meta: Meta<typeof Button> = {
   component: Button,
-} as ComponentMeta<typeof Button>;
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// eslint-disable-next-line react/jsx-props-no-spreading, react/function-component-definition
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
-
-export const ButtonOne = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-ButtonOne.args = {
-  // eslint-disable-next-line no-console
-  onClick: () => ({}),
-  text: 'Motion Button',
+  parameters: {
+    backgrounds: {
+      values: [
+        { name: 'dark', value: 'black' }, // need to learn how to hoist these colors to global level
+      ],
+    },
+  },
+  argTypes: {
+    buttonType: {
+      options: [
+        ButtonType.DEFAULT,
+        ButtonType.PRIMARY,
+        ButtonType.INFO,
+        ButtonType.ALERT,
+        ButtonType.DANGER,
+      ],
+      control: { type: 'radio' },
+    },
+  },
 };
+
+// defining a story
+type Story = StoryObj<typeof Button>;
+
+export const Base: Story = {
+  // name: 'Button Base', // if not for this, storybook will default to named export
+  args: {
+    text: 'Default Button',
+    onClick: () => {},
+    buttonType: ButtonType.DEFAULT,
+    isLoading: false,
+    disabled: false,
+  },
+  // render: () => <Button text="Default" onClick={() => {}} />,
+};
+
+export default meta;
