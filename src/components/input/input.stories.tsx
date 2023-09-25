@@ -13,7 +13,7 @@ export default {
 // eslint-disable-next-line react/jsx-props-no-spreading, react/function-component-definition
 const Template: ComponentStory<typeof Input> = () => <Input />;
 
-export const CustomInput = Template.bind({});
+export const BaseInput = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 // CustomInput.args = {
 //   // eslint-disable-next-line no-console
