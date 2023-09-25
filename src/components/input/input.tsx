@@ -12,7 +12,8 @@ const Input = () => {
 
   return (
     <InputWrapper>
-      <div className="left">
+      <input className="input" onChange={inputChangeHandle} />
+      {/* <div className="left">
         <div className="top" />
         <div className="bottom" />
       </div>
@@ -20,7 +21,6 @@ const Input = () => {
         <div className="left" />
         <div className="right" />
       </div>
-      <input className="input" onChange={inputChangeHandle} />
       <div className="bottom">
         <div className="left" />
         <div className="right" />
@@ -28,7 +28,7 @@ const Input = () => {
       <div className="right">
         <div className="top" />
         <div className="bottom" />
-      </div>
+      </div> */}
     </InputWrapper>
   );
 };
