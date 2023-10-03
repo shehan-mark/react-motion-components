@@ -1,34 +1,39 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
-import { Input as StyledInput, InputWrapper } from './styled';
-
-// const Input = () => <StyledInput />;
+import { InputWrapper } from './styled';
 
 const Input = () => {
+  const [text, setText] = useState<string>('');
+  const [inputWidth, setInputWidth] = useState<number>(0);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const spanRef = useRef<HTMLSpanElement>(null);
+  
+  useEffect(() => {
+    if (spanRef.current) {
+      const width = spanRef.current.offsetWidth;
+      setInputWidth(width);
+    }
+  }, [text]);
+
   const inputChangeHandle = (e: any) => {
-    console.log('input changed', e);
+    console.log('input changed', e.target.value);
+    setText(e.target.value);
   };
 
+  const gettingFocused = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }
+
   return (
-    <InputWrapper>
-      <input className="input" onChange={inputChangeHandle} />
-      {/* <div className="left">
-        <div className="top" />
-        <div className="bottom" />
+    <InputWrapper onFocus={gettingFocused} onClick={gettingFocused}>
+      <div className='input-skeleton'>
+        <input onChange={inputChangeHandle} ref={inputRef} value={text} style={{ width: `${inputWidth}px` }}/>
+        <div className='input-caret' />
+        <span ref={spanRef} className='input-shadow-span'>{text}</span>
       </div>
-      <div className="top">
-        <div className="left" />
-        <div className="right" />
-      </div>
-      <div className="bottom">
-        <div className="left" />
-        <div className="right" />
-      </div>
-      <div className="right">
-        <div className="top" />
-        <div className="bottom" />
-      </div> */}
     </InputWrapper>
   );
 };

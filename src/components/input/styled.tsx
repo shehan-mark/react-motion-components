@@ -1,23 +1,19 @@
 /* eslint-disable */
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const primaryColor = '#59ad6a';
 const secondaryColor = '#276e36';
 
-const Input = styled.input((props: any) => ({
-  width: '100%',
-  height: '30px',
-  borderRadius: '4px',
-  outline: 'none',
-  padding: '20px 10px',
-  boxSizing: 'border-box',
-  backgroundColor: primaryColor,
-  color: 'white',
-  border: `20px ${secondaryColor}`,
-  borderStyle: 'inset',
-  fontSize: '14px',
-  // border: 'none',
-}));
+// object style keyframe definition
+const blink = keyframes({
+  '0%': {
+    opacity: 0,
+  },
+  '100%': {
+    opacity: '100%',
+  }
+})
 
 const InputWrapper = styled.div(() => ({
   width: '90%',
@@ -25,8 +21,10 @@ const InputWrapper = styled.div(() => ({
   borderRadius: '6px',
   background: primaryColor,
   position: 'relative',
-
-  input: {
+  transition: 'all 0.3s ease-in',
+  
+  ".input-skeleton": {
+    background: 'white',
     width: '100%',
     height: '50px',
     borderRadius: '6px',
@@ -35,118 +33,44 @@ const InputWrapper = styled.div(() => ({
     left: '-5px',
     border: `3px solid ${primaryColor}`,
     outline: 'none',
-    fontSize: '16px',
     padding: '5px 8px',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    display: 'flex',
+    alignItems: 'center',
+    overflow: 'hidden',
+
+    ".input-shadow-span": {
+      width: 'auto',
+      fontSize: '16px',
+      position: 'absolute',
+      // right: '100px',
+      fontFamily: 'Arial, sans-serif',
+      visibility: 'hidden',
+    },
+
+    "input": {
+      width: '0',
+      maxWidth: 'calc(100% - 16px)',
+      fontSize: '16px',
+      padding: 0,
+      fontFamily: 'Arial, sans-serif',
+      caretColor: 'transparent',
+      outline: 'none',
+      border: 'none',
+      background: 'transparent'
+    },
+    ".input-caret": {
+      width: '12px',
+      height: '16px',
+      borderBottom: `3px solid ${primaryColor}`,
+      animation: `${blink} 1.2s ease infinite`
+    
+    }
+    
+
   }
 }));
 
-// const InputWrapper = styled.div(() => ({
-//   width: '100%',
-//   height: '40px',
-//   backgroundColor: primaryColor,
-//   position: 'relative',
-//   borderRadius: '4px',
-//   overflow: 'hidden',
-//   '.input': {
-//     background: 'transparent',
-//     width: '100%',
-//     height: 'calc(100%-10px)',
-//     padding: '10px',
-//     color: 'white',
-//     fontSize: '14px',
-//     letterSpacing: '1.5px',
-//     fontWeight: 'bold',
-//   },
-//   '.top': {
-//     position: 'absolute',
-//     top: 0,
-//     width: '100%',
-//     '.right': {
-//       position: 'absolute',
-//       right: '5px',
-//       height: '10px',
-//       width: '50%',
-//       background: 'linear-gradient(180deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 20%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewX(-45deg)',
-//     },
-//     '.left': {
-//       position: 'absolute',
-//       height: '10px',
-//       width: '50%',
-//       background: 'linear-gradient(180deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 20%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewX(45deg)',
-//       left: '5px',
-//     },
-//   },
-//   '.bottom': {
-//     position: 'absolute',
-//     bottom: '10px',
-//     width: '100%',
-//     '.right': {
-//       position: 'absolute',
-//       right: '5px',
-//       height: '10px',
-//       width: '50%',
-//       background: 'linear-gradient(0deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 40%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewX(45deg)',
-//     },
-//     '.left': {
-//       position: 'absolute',
-//       height: '10px',
-//       width: '50%',
-//       background: 'linear-gradient(0deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 40%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewX(-45deg)',
-//       left: '5px',
-//     },
-//   },
-//   '.right': {
-//     position: 'absolute',
-//     right: '0',
-//     width: '10px',
-//     height: '100%',
-//     '.top': {
-//       position: 'absolute',
-//       top: '5px',
-//       width: '10px',
-//       height: '50%',
-//       background: 'linear-gradient(-90deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 40%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewY(-45deg)',
-//     },
-//     '.bottom': {
-//       position: 'absolute',
-//       width: '10px',
-//       height: '50%',
-//       background: 'linear-gradient(-90deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 40%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewY(45deg)',
-//       bottom: '5px',
-//     },
-//   },
-//   '.left': {
-//     position: 'absolute',
-//     left: '0',
-//     width: '10px',
-//     height: '100%',
-//     '.top': {
-//       position: 'absolute',
-//       top: '5px',
-//       width: '10px',
-//       height: '50%',
-//       background: 'linear-gradient(90deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 40%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewY(45deg)',
-//     },
-//     '.bottom': {
-//       position: 'absolute',
-//       width: '10px',
-//       height: '50%',
-//       background: 'linear-gradient(90deg, rgba(3,3,3,1) 0%, rgba(12,66,24,1) 40%, rgba(39,110,54,1) 100%)',
-//       transform: 'skewY(-45deg)',
-//       bottom: '5px',
-//     },
-//   },
-// }));
-
 export {
-  Input,
   InputWrapper,
 };
