@@ -14,7 +14,22 @@ const blink = keyframes({
   '100%': {
     opacity: '100%',
   }
-})
+});
+
+const pressed = keyframes({
+  '0%': {
+    top: '-5px',
+    left: '-5px',
+  },
+  '50%': {
+    top: '-2px',
+    left: '-2px',
+  },
+  '100%': {
+    top: '-5px',
+    left: '-5px',
+  }
+});
 
 const InputWrapper = styled.div(({ focused }: IStyledInputProps) => ({
   width: '90%',
@@ -38,6 +53,7 @@ const InputWrapper = styled.div(({ focused }: IStyledInputProps) => ({
     boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
+    animation: focused? `${pressed} 0.3s ease`: 'none',
     // overflow: 'hidden',
 
     ".input-shadow-span": {
