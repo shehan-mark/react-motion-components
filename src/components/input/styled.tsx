@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import { IStyledInputProps } from './types';
 
 const primaryColor = '#59ad6a';
 const secondaryColor = '#276e36';
@@ -15,7 +16,7 @@ const blink = keyframes({
   }
 })
 
-const InputWrapper = styled.div(() => ({
+const InputWrapper = styled.div(({ focused }: IStyledInputProps) => ({
   width: '90%',
   height: '50px',
   borderRadius: '6px',
@@ -37,19 +38,24 @@ const InputWrapper = styled.div(() => ({
     boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
-    overflow: 'hidden',
+    // overflow: 'hidden',
 
     ".input-shadow-span": {
       width: 'auto',
       fontSize: '16px',
       position: 'absolute',
-      // right: '100px',
       fontFamily: 'Arial, sans-serif',
+      whiteSpace: 'pre-wrap',
       visibility: 'hidden',
+      // temp
+      // background: 'red',
+      // bottom: '33px',
+      // visibility: 'visible',
     },
 
     "input": {
       width: '0',
+      // height: '50px',
       maxWidth: 'calc(100% - 16px)',
       fontSize: '16px',
       padding: 0,
@@ -57,16 +63,20 @@ const InputWrapper = styled.div(() => ({
       caretColor: 'transparent',
       outline: 'none',
       border: 'none',
-      background: 'transparent'
+      background: 'transparent',
+      // temp
+      // background: 'lightsalmon'
     },
     ".input-caret": {
+      display: focused? 'block': 'none',
       width: '12px',
       height: '16px',
       borderBottom: `3px solid ${primaryColor}`,
-      animation: `${blink} 1.2s ease infinite`
-    
+      animation: `${blink} 1s ease infinite`
+    },
+    "&.focused": {
+      background: 'red',
     }
-    
 
   }
 }));

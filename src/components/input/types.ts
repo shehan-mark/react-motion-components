@@ -1,3 +1,6 @@
 export interface IInputProps {
-  disabled: boolean;
+  disabled?: boolean;
+  focused: boolean;
 }
+
+export type IStyledInputProps = IInputProps;
