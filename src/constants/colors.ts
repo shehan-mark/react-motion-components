@@ -1,6 +1,15 @@
-import { ButtonStyleType } from './types';
+export interface IColor {
+  color: string;
+  background: string;
+  boxColor: string;
+  shadowAround: string;
+  shadowBottom: string;
+  hoverColor: string;
+  activeColor: string;
+  outlineColor: string;
+}
 
-export const ButtonColors: { [key: string]: ButtonStyleType } = {
+export const StyleColors: { [key: string]: IColor } = {
   DEFAULT: {
     background: '#e9e9ed',
     boxColor: '#a0a0a3',

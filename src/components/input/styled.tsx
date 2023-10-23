@@ -2,6 +2,8 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import { IStyledInputProps, InputType } from './types';
+import { ESTYLE } from '../../constants/enums';
+import { StyleColors } from '../../constants/colors';
 
 const primaryColor = '#59ad6a';
 const secondaryColor = '#276e36';
@@ -39,11 +41,11 @@ const getDirectionValue = (inputStyle: InputType) => {
   if (inputStyle === 'bottom-right') return ({ top: '5px', left: '5px' });
 }
 
-const InputWrapper = styled.div(({ focused, inputStyle = 'top-left' }: IStyledInputProps) => ({
+const InputWrapper = styled.div(({ focused, inputStyle = 'top-left', inputType = ESTYLE.DEFAULT }: IStyledInputProps) => ({
   width: '90%',
   height: '50px',
   borderRadius: '6px',
-  background: primaryColor,
+  background: StyleColors[inputType].boxColor,
   position: 'relative',
   transition: 'all 0.3s ease-in',
   
@@ -55,7 +57,7 @@ const InputWrapper = styled.div(({ focused, inputStyle = 'top-left' }: IStyledIn
     position: 'absolute',
     top: getDirectionValue(inputStyle)?.top,
     left: getDirectionValue(inputStyle)?.left,
-    border: `3px solid ${primaryColor}`,
+    border: `3px solid ${StyleColors[inputType].background}`,
     outline: 'none',
     padding: '5px 8px',
     boxSizing: 'border-box',
@@ -96,11 +98,11 @@ const InputWrapper = styled.div(({ focused, inputStyle = 'top-left' }: IStyledIn
       display: focused? 'block': 'none',
       width: '12px',
       height: '16px',
-      borderBottom: `3px solid ${primaryColor}`,
+      borderBottom: `3px solid ${StyleColors[inputType].background}`,
       animation: `${blink} 1s ease infinite`
     },
     "&.focused": {
-      background: 'red',
+      // background: 'red',
     }
 
   }

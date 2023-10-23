@@ -3,6 +3,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Input from './input';
+import { ESTYLE } from '../../constants/enums';
 
 const meta: Meta<typeof Input> = {
   component: Input,
@@ -21,6 +22,12 @@ const meta: Meta<typeof Input> = {
         'top-right',
         'bottom-left',
         'bottom-right',
+      ],
+      control: { type: 'radio' },
+    },
+    inputType: {
+      options: [
+        ...Object.keys(ESTYLE),
       ],
       control: { type: 'radio' },
     },

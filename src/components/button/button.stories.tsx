@@ -2,7 +2,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './button';
-import { ButtonType } from './types';
+import { ESTYLE } from '../../constants/enums';
 
 // this default export object controls how storybook list our component
 // and provide information for the addons used by us.
@@ -18,11 +18,11 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     buttonType: {
       options: [
-        ButtonType.DEFAULT,
-        ButtonType.PRIMARY,
-        ButtonType.INFO,
-        ButtonType.ALERT,
-        ButtonType.DANGER,
+        ESTYLE.DEFAULT,
+        ESTYLE.PRIMARY,
+        ESTYLE.INFO,
+        ESTYLE.ALERT,
+        ESTYLE.DANGER,
       ],
       control: { type: 'radio' },
     },
@@ -37,7 +37,7 @@ export const Base: Story = {
   args: {
     text: 'Default Button',
     onClick: () => {},
-    buttonType: ButtonType.DEFAULT,
+    buttonType: ESTYLE.DEFAULT,
     isLoading: false,
     disabled: false,
   },

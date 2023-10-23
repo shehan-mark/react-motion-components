@@ -8,7 +8,8 @@ import {
   BottomLeftButton,
   FrontDownButton,
 } from './styled';
-import { ButtonType, IButtonProps } from './types';
+import { IButtonProps } from './types';
+import { ESTYLE as ButtonType } from '../../constants/enums';
 
 const Button = ({
   onClick,

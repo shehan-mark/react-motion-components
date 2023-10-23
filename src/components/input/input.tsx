@@ -5,7 +5,8 @@ import { InputWrapper } from './styled';
 import { IInputProps } from './types';
 
 const Input = ({
-  inputStyle
+  inputStyle,
+  inputType,
 }: IInputProps) => {
   const [text, setText] = useState<string>('');
   const [shadowText, setShadowText] = useState<string>('');
@@ -45,6 +46,7 @@ const Input = ({
       onBlur={gettingBlurred}
       focused={focused}
       inputStyle={inputStyle}
+      inputType={inputType}
     >
       <div className='input-skeleton'>
         <input onChange={inputChangeHandle} ref={inputRef} value={text} style={{ width: `${inputWidth}px` }}/>

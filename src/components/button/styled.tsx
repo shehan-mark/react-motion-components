@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import { StyledButtonProps } from './types';
-import { ButtonColors } from './colors';
+import { StyleColors as ButtonColors } from '../../constants/colors';
 import { animationDuration } from '../../constants/common';
 
 const BasicButton = styled.button(({ buttonType }: StyledButtonProps) => ({
