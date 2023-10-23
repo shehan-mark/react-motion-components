@@ -2,8 +2,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import { InputWrapper } from './styled';
+import { IInputProps } from './types';
 
-const Input = () => {
+const Input = ({
+  inputStyle
+}: IInputProps) => {
   const [text, setText] = useState<string>('');
   const [shadowText, setShadowText] = useState<string>('');
   const [inputWidth, setInputWidth] = useState<number>();
@@ -41,6 +44,7 @@ const Input = () => {
       onClick={gettingFocused}
       onBlur={gettingBlurred}
       focused={focused}
+      inputStyle={inputStyle}
     >
       <div className='input-skeleton'>
         <input onChange={inputChangeHandle} ref={inputRef} value={text} style={{ width: `${inputWidth}px` }}/>

@@ -13,6 +13,18 @@ const meta: Meta<typeof Input> = {
       ],
     },
   },
+  argTypes: {
+    inputStyle: {
+      options: [
+        'front',
+        'top-left',
+        'top-right',
+        'bottom-left',
+        'bottom-right',
+      ],
+      control: { type: 'radio' },
+    },
+  },
 };
 
 type Story = StoryObj<typeof Input>;

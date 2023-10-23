@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
-import { IStyledInputProps } from './types';
+import { IStyledInputProps, InputType } from './types';
 
 const primaryColor = '#59ad6a';
 const secondaryColor = '#276e36';
@@ -31,7 +31,15 @@ const pressed = keyframes({
   }
 });
 
-const InputWrapper = styled.div(({ focused }: IStyledInputProps) => ({
+const getDirectionValue = (inputStyle: InputType) => {
+  if (inputStyle === 'top-left') return ({ top: '-5px', left: '-5px' });
+  if (inputStyle === 'bottom-left') return ({ top: '5px', left: '-5px' });
+  if (inputStyle === 'front') return ({ top: '5px', left: '0px' });
+  if (inputStyle === 'top-right') return ({ top: '-5px', left: '5px' });
+  if (inputStyle === 'bottom-right') return ({ top: '5px', left: '5px' });
+}
+
+const InputWrapper = styled.div(({ focused, inputStyle = 'top-left' }: IStyledInputProps) => ({
   width: '90%',
   height: '50px',
   borderRadius: '6px',
@@ -45,14 +53,15 @@ const InputWrapper = styled.div(({ focused }: IStyledInputProps) => ({
     height: '50px',
     borderRadius: '6px',
     position: 'absolute',
-    top: '-5px',
-    left: '-5px',
+    top: getDirectionValue(inputStyle)?.top,
+    left: getDirectionValue(inputStyle)?.left,
     border: `3px solid ${primaryColor}`,
     outline: 'none',
     padding: '5px 8px',
     boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
+    transition: 'all 0.2s ease-in',
     animation: focused? `${pressed} 0.3s ease`: 'none',
     // overflow: 'hidden',
 
