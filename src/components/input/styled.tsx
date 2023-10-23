@@ -18,15 +18,15 @@ const blink = keyframes({
 
 const pressed = keyframes({
   '0%': {
-    top: '-5px',
     left: '-5px',
   },
-  '50%': {
-    top: '-2px',
+  '25%': {
+    left: '-10px',
+  },
+  '75%': {
     left: '-2px',
   },
   '100%': {
-    top: '-5px',
     left: '-5px',
   }
 });
