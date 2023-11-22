@@ -5,6 +5,7 @@
   "homepage": "https://shehan-mark.github.io/react-motion-components",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "styles": "dist/r-r-gui.css",
   "files": [
     "dist"
   ],
@@ -81,6 +82,10 @@
     "rollup": "^3.23.1",
     "rollup-plugin-dts": "^5.3.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-scss": "^4.0.0",
+    "rollup-plugin-visualizer": "^5.9.2",
+    "sass": "^1.69.5",
     "storybook": "7.0.18",
     "ts-jest": "^29.1.0",
     "tslib": "^2.5.3",
