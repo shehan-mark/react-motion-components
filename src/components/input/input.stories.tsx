@@ -1,4 +1,5 @@
-// import React from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -37,7 +38,9 @@ const meta: Meta<typeof Input> = {
 type Story = StoryObj<typeof Input>;
 
 export const Base: Story = {
-
+  render: (props) => (
+    <Input {...props} />
+  ),
 };
 
 export default meta;

@@ -41,11 +41,11 @@ const getDirectionValue = (inputStyle: InputType) => {
   if (inputStyle === 'bottom-right') return ({ top: '5px', left: '5px' });
 }
 
-const InputWrapper = styled.div(({ focused, inputStyle = 'top-left', inputType = ESTYLE.DEFAULT }: IStyledInputProps) => ({
-  width: '90%',
+const InputWrapper = styled.div(({ inputStyle = 'top-left', inputType = ESTYLE.DEFAULT }: IStyledInputProps) => ({
+  width: '100%',
   height: '50px',
   borderRadius: '6px',
-  background: StyleColors[inputType].boxColor,
+  background: 'rgba(39, 110, 54, 0.7)',
   position: 'relative',
   transition: 'all 0.3s ease-in',
   
@@ -57,32 +57,25 @@ const InputWrapper = styled.div(({ focused, inputStyle = 'top-left', inputType =
     position: 'absolute',
     top: getDirectionValue(inputStyle)?.top,
     left: getDirectionValue(inputStyle)?.left,
-    border: `3px solid ${StyleColors[inputType].background}`,
+    border: `3px solid rgba(89, 173, 106, 0.7)`,
     outline: 'none',
     padding: '5px 8px',
     boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
     transition: 'all 0.2s ease-in',
-    animation: focused? `${pressed} 0.3s ease`: 'none',
-    // overflow: 'hidden',
 
     ".input-shadow-span": {
       width: 'auto',
-      fontSize: '16px',
+      fontSize: 'inherit',
       position: 'absolute',
       fontFamily: 'Arial, sans-serif',
       whiteSpace: 'pre-wrap',
       visibility: 'hidden',
-      // temp
-      // background: 'red',
-      // bottom: '33px',
-      // visibility: 'visible',
     },
 
     "input": {
       width: '0',
-      // height: '50px',
       maxWidth: 'calc(100% - 16px)',
       fontSize: '16px',
       padding: 0,
@@ -91,20 +84,23 @@ const InputWrapper = styled.div(({ focused, inputStyle = 'top-left', inputType =
       outline: 'none',
       border: 'none',
       background: 'transparent',
-      // temp
-      // background: 'lightsalmon'
     },
     ".input-caret": {
-      display: focused? 'block': 'none',
+      display: 'none',
       width: '12px',
       height: '16px',
       borderBottom: `3px solid ${StyleColors[inputType].background}`,
       animation: `${blink} 1s ease infinite`
     },
-    "&.focused": {
-      // background: 'red',
+  },
+  ':focus-within': {
+    background: 'rgba(39, 110, 54, 1)',
+    ".input-skeleton": {
+      border: `3px solid rgba(89, 173, 106, 1)`,
+      ".input-caret": {
+        display: 'block',
+      }
     }
-
   }
 }));
 
